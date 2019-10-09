@@ -34,7 +34,19 @@ namespace WeatherAPI.Tests
         [Test]
         public void baseCheck()
         {
-            Assert.AreEqual("Stations",weatherService.weatherDTO.weatherModel.@base);
+            Assert.AreEqual("stations",weatherService.weatherDTO.weatherModel.@base);
+        }
+
+        [Test]
+        public void mainCheck()
+        {
+            Assert.AreEqual(1004, weatherService.weatherDTO.weatherModel.main.pressure);
+        }
+
+        [Test]
+        public void dtCheck()
+        {
+            Assert.AreEqual(1570625699, weatherService.weatherDTO.weatherModel.dt);
         }
     }
 }
