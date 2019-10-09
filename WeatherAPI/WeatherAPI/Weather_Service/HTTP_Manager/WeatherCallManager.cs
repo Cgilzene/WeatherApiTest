@@ -16,15 +16,15 @@ namespace WeatherAPI.Weather_Service.HTTP_Manager
         public WeatherCallManager()
         {
             client = new RestClient(WeatherConfig.BaseUrl);
-           // client = new RestClient("api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=725b4bc4c9cf3fe33c2e3259826f13b9");
+      
         }
         
-        public string GetLatestWeather()
+        public string GetLatestWeatherInfo()
         {
-            //var request = new RestRequest("http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=725b4bc4c9cf3fe33c2e3259826f13b9");
             var request = new RestRequest("/data/2.5/weather" + WeatherConfig.ApiUrlMod + "&" + WeatherConfig.ApiKey);
             var response = client.Execute(request, Method.GET);
             return response.Content;
+           
         }
     }
 }

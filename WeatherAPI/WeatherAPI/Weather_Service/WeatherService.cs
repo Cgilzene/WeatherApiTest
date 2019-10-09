@@ -20,11 +20,11 @@ namespace WeatherAPI.Weather_Service
 
         public WeatherService() // Constructor
         {
-            weatherDTO.DeserializeWeatherModel(weatherCallManager.GetLatestWeather());
-            weatherInfoJson = JObject.Parse(weatherCallManager.GetLatestWeather());
+            weatherDTO.DeserializeWeatherModel(weatherCallManager.GetLatestWeatherInfo());
+            weatherInfoJson = JObject.Parse(weatherCallManager.GetLatestWeatherInfo());
         }
 
-        public int GetTotalCoord()
+        public int GetTotalInCoord()
         {
             int count = 0;
             foreach (var item in weatherInfoJson["coord"])
@@ -34,7 +34,7 @@ namespace WeatherAPI.Weather_Service
             return count;
         }
 
-        public int GetTotalWeather()
+        public int GetTotalInWeather()
         {
             int count = 0;
             foreach (var item in weatherInfoJson["weather"])
@@ -44,7 +44,7 @@ namespace WeatherAPI.Weather_Service
             return count;
         }
 
-        public int GetTotalMain()
+        public int GetTotalInMain()
         {
             int count = 0;
             foreach (var item in weatherInfoJson["main"])
@@ -54,7 +54,7 @@ namespace WeatherAPI.Weather_Service
             return count;
         }
 
-        public int GetTotalWind()
+        public int GetTotalInWind()
         {
             int count = 0;
             foreach (var item in weatherInfoJson["wind"])
@@ -64,7 +64,7 @@ namespace WeatherAPI.Weather_Service
             return count;
         }
 
-        public int GetTotalRain()
+        public int GetTotalInRain()
         {
             int count = 0;
             foreach (var item in weatherInfoJson["rain"])
@@ -74,7 +74,7 @@ namespace WeatherAPI.Weather_Service
             return count;
         }
 
-        public int GetTotalSys()
+        public int GetTotalInSys()
         {
             int count = 0;
             foreach (var item in weatherInfoJson["sys"])
@@ -84,7 +84,7 @@ namespace WeatherAPI.Weather_Service
             return count;
         }
 
-        public int GetTotalCloud()
+        public int GetTotalInCloud()
         {
             int count = 0;
             foreach (var item in weatherInfoJson["clouds"])
@@ -93,6 +93,9 @@ namespace WeatherAPI.Weather_Service
             }
             return count;
         }
+
+       
+
     }
 
     
