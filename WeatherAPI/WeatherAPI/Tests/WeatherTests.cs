@@ -26,6 +26,15 @@ namespace WeatherAPI.Tests
         }
 
         [Test]
-        p
+        public void weatherSpeedCheck()
+        {
+            Assert.AreEqual(weatherService.weatherDTO.weatherModel.wind.speed, 9.3);
+        }
+
+        [Test]
+        public void baseCheck()
+        {
+            Assert.AreEqual("Stations",weatherService.weatherDTO.weatherModel.@base);
+        }
     }
 }
