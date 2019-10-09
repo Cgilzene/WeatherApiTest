@@ -175,5 +175,30 @@ namespace WeatherAPI.Tests
             Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.wind.gust);
 
         }
+
+        [Test]
+        public void testVarTypeCloud()
+        {
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.clouds.all);
+        }
+
+        [Test]
+        public void testVarTypeDt()
+        {
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.dt);
+        }
+
+        [Test]
+        public void testVarTypeSys()
+        {
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.sys.type);
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.sys.id);
+            Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.sys.message);
+            Assert.IsInstanceOf(typeof(string), weatherService.weatherDTO.weatherModel.sys.country);
+            Assert.IsInstanceOf(typeof(Int32), weatherService.weatherDTO.weatherModel.sys.sunset);
+            Assert.IsInstanceOf(typeof(Int32), weatherService.weatherDTO.weatherModel.sys.sunrise);
+        }
+
+        
     }
 }
