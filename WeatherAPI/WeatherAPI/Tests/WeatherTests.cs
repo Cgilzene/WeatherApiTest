@@ -11,6 +11,21 @@ namespace WeatherAPI.Tests
     [TestFixture]
     public class WeatherTests
     {
-        private Weather_Service weather_Service = new Weather_Service();
+        private WeatherService weatherService = new WeatherService();
+
+        [Test]
+        public void WebcallScheck()
+        {
+            Assert.Greater(weatherService.weatherDTO.weatherModel.coord.lat, 50.55);
+        }
+
+        [Test]
+        public void LocationNameCheck()
+        {
+            Assert.AreEqual("London", weatherService.weatherDTO.weatherModel.name);
+        }
+
+        [Test]
+        p
     }
 }

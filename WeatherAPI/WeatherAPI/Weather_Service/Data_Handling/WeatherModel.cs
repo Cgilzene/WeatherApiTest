@@ -8,7 +8,7 @@ namespace WeatherAPI.Weather_Service.Data_Handling
 {
     public class WeatherModel
     {
-        public string baseStatiion { get; set; }
+        public string @base { get; set; }
         public int visibility { get; set; }
         public int dt { get; set; }
         public int timezone { get; set; }
@@ -16,7 +16,7 @@ namespace WeatherAPI.Weather_Service.Data_Handling
         public string name { get; set; }
         public int cod { get; set; }
         public Coord coord { get; set; }
-        public Weather weather { get; set; }
+        public Weather[] weather { get; set; }
         public Main main { get; set; }
         public Wind wind { get; set; }
         public Rain rain { get; set; }
@@ -53,8 +53,9 @@ namespace WeatherAPI.Weather_Service.Data_Handling
 
     public class Wind
     {
-        public int speed { get; set; }
+        public double speed { get; set; }
         public int deg { get; set; }
+        public double gust { get; set; }
     }
 
     public class Rain

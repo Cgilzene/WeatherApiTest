@@ -16,12 +16,22 @@ namespace WeatherAPI.Weather_Service
         // we need DTO
         public WeatherDTO weatherDTO = new WeatherDTO();
         // we need JobObject
-        public JObject weatherInfo;
+        public JObject weatherInfoJson;
 
         public WeatherService() // Constructor
         {
-            weatherDTO.DeserializeClouds(weatherCallManager.GetLatestWeather());
-            weatherInfo = JObject.Parse(weatherCallManager.GetLatestWeather());
+            weatherDTO.DeserializeWeatherModel(weatherCallManager.GetLatestWeather());
+            weatherInfoJson = JObject.Parse(weatherCallManager.GetLatestWeather());
+        }
+
+        public int GetTotalCoord()
+        {
+            int count = 0;
+            foreach (var item in weatherInfoJson["coord"])
+            {
+                count += 1;
+            }
+            return count;
         }
     }
 
