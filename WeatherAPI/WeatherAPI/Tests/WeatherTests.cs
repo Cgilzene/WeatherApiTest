@@ -14,7 +14,7 @@ namespace WeatherAPI.Tests
         private WeatherService weatherService = new WeatherService();
 
         [Test]
-        public void WebcallScheck()
+        public void coordCheck()
         {
             Assert.Greater(weatherService.weatherDTO.weatherModel.coord.lat, 50.55);
         }
@@ -26,7 +26,7 @@ namespace WeatherAPI.Tests
         }
 
         [Test]
-        public void weatherSpeedCheck()
+        public void windSpeedCheck()
         {
             Assert.AreEqual(weatherService.weatherDTO.weatherModel.wind.speed, 9.3);
         }
@@ -77,6 +77,12 @@ namespace WeatherAPI.Tests
         public void codCheck()
         {
             Assert.AreEqual(200, weatherService.weatherDTO.weatherModel.cod);
+        }
+
+        [Test]
+        public void weatherCheck()
+        {
+            Assert.AreEqual("scatterred clouds", weatherService.weatherDTO.weatherModel.weather[0].description);
         }
     }
 }
