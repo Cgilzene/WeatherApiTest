@@ -6,8 +6,24 @@ using System.Threading.Tasks;
 
 namespace WeatherAPI.Weather_Service.Data_Handling
 {
-   public class WeatherModel
+    public class WeatherModel
     {
+        public string baseStatiion { get; set; }
+        public int visibility { get; set; }
+        public int dt { get; set; }
+        public int timezone { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
+        public int cod { get; set; }
+        public Coord coord { get; set; }
+        public Weather weather { get; set; }
+        public Main main { get; set; }
+        public Wind wind { get; set; }
+        public Rain rain { get; set; }
+        public Clouds clouds { get; set; }
+        public Sys sys { get; set; }
+
+
 
     }
 
@@ -26,7 +42,7 @@ namespace WeatherAPI.Weather_Service.Data_Handling
         public string icon { get; set; }
     }
 
-    public class main
+    public class Main
     {
         public double temp { get; set; }
         public int pressure { get; set; }
@@ -35,5 +51,34 @@ namespace WeatherAPI.Weather_Service.Data_Handling
         public double temp_max { get; set; }
     }
 
+    public class Wind
+    {
+        public int speed { get; set; }
+        public int deg { get; set; }
+    }
+
+    public class Rain
+    {
+        public double threeHours { get; set; }
+        
+
+        
+    }
+
+    public class Clouds
+    {
+        public int all { get; set; }
+
+    }
+
+    public class Sys
+    {
+        public int type { get; set; }
+        public int id { get; set; }
+        public double message { get; set; }
+        public string country { get; set; }
+        public Int32 sunrise { get; set; }
+        public Int32 sunset { get; set; }
+    }
     
 }
