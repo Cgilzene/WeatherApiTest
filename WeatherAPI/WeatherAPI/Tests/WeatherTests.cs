@@ -46,19 +46,37 @@ namespace WeatherAPI.Tests
         [Test]
         public void dtCheck()
         {
-            Assert.AreEqual(1570625699, weatherService.weatherDTO.weatherModel.dt);
+            Assert.AreEqual(1570628042, weatherService.weatherDTO.weatherModel.dt);
         }
 
         [Test]
         public void cloudCheck()
         {
-            Assert.AreEqual(40, weatherService.weatherDTO.weatherModel.clouds);
+            Assert.AreEqual(40, weatherService.weatherDTO.weatherModel.clouds.all);
         }
 
         [Test]
         public void sysCheck()
         {
-            Assert.AreEqual("GB", weatherService.weatherDTO.weatherModel.sys);
+            Assert.AreEqual("GB", weatherService.weatherDTO.weatherModel.sys.country);
+        }
+
+        [Test]
+        public void timeZoneCheck()
+        {
+            Assert.AreEqual(3600, weatherService.weatherDTO.weatherModel.timezone);
+        }
+
+        [Test]
+        public void idCheck()
+        {
+            Assert.AreEqual(2643743, weatherService.weatherDTO.weatherModel.id);
+        }
+
+        [Test]
+        public void codCheck()
+        {
+            Assert.AreEqual(200, weatherService.weatherDTO.weatherModel.cod);
         }
     }
 }
