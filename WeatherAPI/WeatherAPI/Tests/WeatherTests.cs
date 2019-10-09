@@ -48,5 +48,17 @@ namespace WeatherAPI.Tests
         {
             Assert.AreEqual(1570625699, weatherService.weatherDTO.weatherModel.dt);
         }
+
+        [Test]
+        public void cloudCheck()
+        {
+            Assert.AreEqual(40, weatherService.weatherDTO.weatherModel.clouds);
+        }
+
+        [Test]
+        public void sysCheck()
+        {
+            Assert.AreEqual("GB", weatherService.weatherDTO.weatherModel.sys);
+        }
     }
 }
