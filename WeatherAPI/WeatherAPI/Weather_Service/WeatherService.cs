@@ -12,15 +12,19 @@ namespace WeatherAPI.Weather_Service
     class WeatherService
     {
         // we need call Manager
-
+        public WeatherCallManager weatherCallManager = new WeatherCallManager();
         // we need DTO
-
+        public WeatherDTO weatherDTO = new WeatherDTO();
         // we need JobObject
+        public JObject weatherInfo;
+
+        public WeatherService() // Constructor
+        {
+            weatherDTO.DeserializeClouds(weatherCallManager.GetLatestWeather());
+            weatherInfo = JObject.Parse(weatherCallManager.GetLatestWeather());
+        }
     }
 
-    public WeatherService() // Constructor
-    {
-
-    }
+    
         
 }
