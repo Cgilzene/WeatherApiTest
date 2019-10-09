@@ -126,5 +126,29 @@ namespace WeatherAPI.Tests
         {
             Assert.AreEqual(5, weatherService.GetTotalMain());
         }
+
+        [Test]
+        public void testVarTypeForId()
+        {
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.id);
+
+        }
+
+        [Test]
+        public void testVarTypeForCoordLatLon()
+        {
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.coord.lat);
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.coord.lon);
+
+        }
+
+        [Test]
+        public void testVarTypeForWeather()
+        {
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.weather[0].id);
+            Assert.IsInstanceOf(typeof(string), weatherService.weatherDTO.weatherModel.weather[0].main);
+            Assert.IsInstanceOf(typeof(string), weatherService.weatherDTO.weatherModel.weather[0].description);
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.weather[0].icon);
+        }
     }
 }
