@@ -88,9 +88,33 @@ namespace WeatherAPI.Tests
         }
 
         [Test]
+        public void visibility_Check()
+        {
+            Assert.AreEqual(10000, weatherService.weatherDTO.weatherModel.visibility);
+        }
+
+        [Test]
         public void id_TypeNull_Check()
         {
             Assert.IsNotNull(weatherService.weatherDTO.weatherModel.id);
+        }
+
+        [Test]
+        public void timezone_TypeNull_Check()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.timezone);
+        }
+
+        [Test]
+        public void name_TypeNull_Check()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.name);
+        }
+
+        [Test]
+        public void visibility_TypeNull_Check()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.weather);
         }
 
         [Test]
