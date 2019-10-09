@@ -14,7 +14,7 @@ namespace WeatherAPI.Tests
         private WeatherService weatherService = new WeatherService();
 
         [Test]
-        public void coordCheck()
+        public void coordLatCheck()
         {
             Assert.Greater(weatherService.weatherDTO.weatherModel.coord.lat, 50.55);
         }
@@ -38,7 +38,7 @@ namespace WeatherAPI.Tests
         }
 
         [Test]
-        public void mainCheck()
+        public void mainInfoPressureCheck()
         {
             Assert.AreEqual(1004, weatherService.weatherDTO.weatherModel.main.pressure);
         }
@@ -50,13 +50,13 @@ namespace WeatherAPI.Tests
         }
 
         [Test]
-        public void cloudCheck()
+        public void cloudAllCheck()
         {
             Assert.AreEqual(40, weatherService.weatherDTO.weatherModel.clouds.all);
         }
 
         [Test]
-        public void sysCheck()
+        public void sysCountryCheck()
         {
             Assert.AreEqual("GB", weatherService.weatherDTO.weatherModel.sys.country);
         }
@@ -113,6 +113,18 @@ namespace WeatherAPI.Tests
         public void totaOptionsRain()
         {
             Assert.AreEqual(1, weatherService.GetTotalRain());
+        }
+
+        [Test]
+        public void totaOptionswind()
+        {
+            Assert.AreEqual(2, weatherService.GetTotalWind());
+        }
+
+        [Test]
+        public void totaOptionsMain()
+        {
+            Assert.AreEqual(5, weatherService.GetTotalMain());
         }
     }
 }
