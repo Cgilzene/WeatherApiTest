@@ -84,5 +84,35 @@ namespace WeatherAPI.Tests
         {
             Assert.AreEqual("scatterred clouds", weatherService.weatherDTO.weatherModel.weather[0].description);
         }
+
+        [Test]
+        public void idTypeNullCheck()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.id);
+        }
+
+        [Test]
+        public void totaOptionsCoord()
+        {
+            Assert.AreEqual(2, weatherService.GetTotalCoord());
+        }
+
+        [Test]
+        public void totalSys()
+        {
+            Assert.AreEqual(6, weatherService.GetTotalSys());
+        }
+
+        [Test]
+        public void totaOptionsClouds()
+        {
+            Assert.AreEqual(1, weatherService.GetTotalCloud());
+        }
+
+        [Test]
+        public void totaOptionsRain()
+        {
+            Assert.AreEqual(1, weatherService.GetTotalRain());
+        }
     }
 }

@@ -33,6 +33,66 @@ namespace WeatherAPI.Weather_Service
             }
             return count;
         }
+
+        public int GetTotalWeather()
+        {
+            int count = 0;
+            foreach (var item in weatherInfoJson["weather"])
+            {
+                count += 1;
+            }
+            return count;
+        }
+
+        public int GetTotalMain()
+        {
+            int count = 0;
+            foreach (var item in weatherInfoJson["main"])
+            {
+                count += 1;
+            }
+            return count;
+        }
+
+        public int GetTotalWind()
+        {
+            int count = 0;
+            foreach (var item in weatherInfoJson["wind"])
+            {
+                count += 1;
+            }
+            return count;
+        }
+
+        public int GetTotalRain()
+        {
+            int count = 0;
+            foreach (var item in weatherInfoJson["rain"])
+            {
+                count += 1;
+            }
+            return count;
+        }
+
+        public int GetTotalSys()
+        {
+            int count = 0;
+            foreach (var item in weatherInfoJson["sys"])
+            {
+                count += 1;
+            }
+            return count;
+        }
+
+        public int GetTotalCloud()
+        {
+            int count = 0;
+            foreach (var item in weatherInfoJson["clouds"])
+            {
+                count += 1;
+            }
+            return count;
+        }
     }
 
     
