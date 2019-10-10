@@ -18,12 +18,13 @@ namespace WeatherAPI.Weather_Service
         // we need JobObject
         public JObject weatherInfoJson;
 
-        public WeatherService() // Constructor
+        public WeatherService() 
         {
             weatherDTO.DeserializeWeatherModel(weatherCallManager.GetLatestWeatherInfo());
             weatherInfoJson = JObject.Parse(weatherCallManager.GetLatestWeatherInfo());
         }
 
+        // Counts the total objects in each attribute
         public int GetTotalInCoord()
         {
             int count = 0;

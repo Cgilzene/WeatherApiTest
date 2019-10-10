@@ -13,142 +13,142 @@ namespace WeatherAPI.Tests
     public class WeatherTests
     {
         private WeatherService weatherService = new WeatherService();
-        private WeatherCallManager weatherCallManager = new WeatherCallManager();
+       
 
         [Test]
-        public void coord_Lat_Check()
+        public void coordLatCheck()
         {
             Assert.Greater(weatherService.weatherDTO.weatherModel.coord.lat, 50.55);
         }
 
         [Test]
-        public void Location_Name_Check()
+        public void LocationNameCheck()
         {
             Assert.AreEqual("London", weatherService.weatherDTO.weatherModel.name);
         }
 
         [Test]
-        public void wind_Speed_Check()
+        public void windSpeedCheck()
         {
-            Assert.AreEqual(weatherService.weatherDTO.weatherModel.wind.speed, 9.3);
+            Assert.AreEqual(weatherService.weatherDTO.weatherModel.wind.speed, 6.3);
         }
 
         [Test]
-        public void base_Check()
+        public void baseCheck()
         {
             Assert.AreEqual("stations",weatherService.weatherDTO.weatherModel.@base);
         }
 
         [Test]
-        public void main_Info_Pressure_Check()
+        public void mainInfoPressureCheck()
         {
-            Assert.AreEqual(1004, weatherService.weatherDTO.weatherModel.main.pressure);
+            Assert.AreEqual(1005, weatherService.weatherDTO.weatherModel.main.pressure);
         }
 
         [Test]
-        public void dt_Check()
+        public void dtCheck()
         {
             Assert.AreEqual(1570628042, weatherService.weatherDTO.weatherModel.dt);
         }
 
         [Test]
-        public void cloud_All_Check()
+        public void cloudAllCheck()
         {
-            Assert.AreEqual(40, weatherService.weatherDTO.weatherModel.clouds.all);
+            Assert.AreEqual(100, weatherService.weatherDTO.weatherModel.clouds.all);
         }
 
         [Test]
-        public void sys_Country_Check()
+        public void sysCountryCheck()
         {
             Assert.AreEqual("GB", weatherService.weatherDTO.weatherModel.sys.country);
         }
 
         [Test]
-        public void timeZone_Check()
+        public void timeZoneCheck()
         {
             Assert.AreEqual(3600, weatherService.weatherDTO.weatherModel.timezone);
         }
 
         [Test]
-        public void id_Check()
+        public void idCheck()
         {
             Assert.AreEqual(2643743, weatherService.weatherDTO.weatherModel.id);
         }
 
         [Test]
-        public void cod_Check()
+        public void codCheck()
         {
             Assert.AreEqual(200, weatherService.weatherDTO.weatherModel.cod);
         }
 
         [Test]
-        public void weather_Check()
+        public void weatherCheck()
         {
             Assert.AreEqual("scatterred clouds", weatherService.weatherDTO.weatherModel.weather[0].description);
         }
 
         [Test]
-        public void visibility_Check()
+        public void visibilityCheck()
         {
             Assert.AreEqual(10000, weatherService.weatherDTO.weatherModel.visibility);
         }
 
         [Test]
-        public void id_TypeNull_Check()
+        public void idTypeNullCheck()
         {
             Assert.IsNotNull(weatherService.weatherDTO.weatherModel.id);
         }
 
         [Test]
-        public void timezone_TypeNull_Check()
+        public void timezoneTypeNullCheck()
         {
             Assert.IsNotNull(weatherService.weatherDTO.weatherModel.timezone);
         }
 
         [Test]
-        public void name_TypeNull_Check()
+        public void nameTypeNullCheck()
         {
             Assert.IsNotNull(weatherService.weatherDTO.weatherModel.name);
         }
 
         [Test]
-        public void visibility_TypeNull_Check()
+        public void visibilityTypeNullCheck()
         {
             Assert.IsNotNull(weatherService.weatherDTO.weatherModel.weather);
         }
 
         [Test]
-        public void total_In_Coord()
+        public void totalInCoord()
         {
             Assert.AreEqual(2, weatherService.GetTotalInCoord());
         }
 
         [Test]
-        public void total_Sys()
+        public void totalSys()
         {
             Assert.AreEqual(6, weatherService.GetTotalInSys());
         }
 
         [Test]
-        public void total_In_Clouds()
+        public void totalInClouds()
         {
             Assert.AreEqual(1, weatherService.GetTotalInCloud());
         }
 
         [Test]
-        public void total_In_Rain()
+        public void totalInRain()
         {
             Assert.AreEqual(1, weatherService.GetTotalInRain());
         }
 
         [Test]
-        public void total_In_Wind()
+        public void totalInWind()
         {
             Assert.AreEqual(2, weatherService.GetTotalInWind());
         }
 
         [Test]
-        public void total_in_Main()
+        public void totalInMain()
         {
             Assert.AreEqual(5, weatherService.GetTotalInMain());
         }
@@ -156,93 +156,190 @@ namespace WeatherAPI.Tests
        
 
         [Test]
-        public void test_VarType_For_Id()
+        public void testVarTypeForId()
         {
             Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.id);
 
         }
 
         [Test]
-        public void test_VarType_For_Coord_Lat_Lon()
+        public void testVarTypeForCoordLon()
+        {
+
+            Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.coord.lon);
+        }
+
+        [Test]
+        public void testVarTypeForCoordLat()
         {
             Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.coord.lat);
-            Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.coord.lon);
 
         }
 
         [Test]
-        public void test_VarType_For_Weather()
+        public void testVarTypeForWeatherId()
         {
             Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.weather[0].id);
+        }
+
+        [Test]
+        public void testVarTypeForWeatherMain()
+        {
             Assert.IsInstanceOf(typeof(string), weatherService.weatherDTO.weatherModel.weather[0].main);
+           
+        }
+
+        [Test]
+        public void testVarTypeForWeatherDescription()
+        {
             Assert.IsInstanceOf(typeof(string), weatherService.weatherDTO.weatherModel.weather[0].description);
+        }
+
+        [Test]
+        public void testVarTypeForWeatherIcon()
+        {
             Assert.IsInstanceOf(typeof(string), weatherService.weatherDTO.weatherModel.weather[0].icon);
         }
 
         [Test]
-        public void test_VarType_For_Base()
+        public void testVarTypeForBase()
         {
             Assert.IsInstanceOf(typeof(string), weatherService.weatherDTO.weatherModel.@base);
         }
 
         [Test]
-        public void test_VarType_For_Main()
+        public void testVarTypeForTemp()
         {
             Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.main.temp);
+
+        }
+
+        [Test]
+        public void testVarTypeForPressure()
+        {
             Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.main.pressure);
-            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.main.humidity);
-            Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.main.temp_max);
+        }
+
+        [Test]
+        public void testVarTypeForHumidity()
+        {
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.main.humidity); 
+        }
+
+        [Test]
+        public void testVarTypeForTempMax()
+        {
             Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.main.temp_min);
         }
 
         [Test]
-        public void test_VarType_Wind()
+        public void testVarTypeFor()
+        {
+            Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.main.temp_min);
+        }
+
+
+        [Test]
+        public void testVarTypeSpeed()
         {
             Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.wind.speed);
-            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.wind.deg);
-            Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.wind.gust);
+            
 
         }
 
         [Test]
-        public void test_VarType_Cloud()
+        public void testVarTypeDeg()
+        {
+            Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.wind.deg);
+
+        }
+
+        [Test]
+        public void testVarTypeGust()
+        {
+            Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.wind.gust);
+        }
+
+        
+
+        [Test]
+        public void testVarTypeCloud()
         {
             Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.clouds.all);
         }
 
         [Test]
-        public void test_VarType_Dt()
+        public void testVarTypeDt()
         {
             Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.dt);
         }
 
         [Test]
-        public void test_VarType_Sys()
+        public void testVarTypeSysType()
         {
             Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.sys.type);
+            
+        }
+
+        [Test]
+        public void testVarTypeSysId()
+        {
+            
             Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.sys.id);
+            
+        }
+
+        [Test]
+        public void testVarTypeSysMessage()
+        {
             Assert.IsInstanceOf(typeof(double), weatherService.weatherDTO.weatherModel.sys.message);
+        }
+
+        [Test]
+        public void testVarTypeSysCountry()
+        {
             Assert.IsInstanceOf(typeof(string), weatherService.weatherDTO.weatherModel.sys.country);
+        }
+
+        [Test]
+        public void testVarTypeSysSunset()
+        {
             Assert.IsInstanceOf(typeof(Int32), weatherService.weatherDTO.weatherModel.sys.sunset);
+        }
+
+        [Test]
+        public void testVarTypeSysSunrise()
+        {
             Assert.IsInstanceOf(typeof(Int32), weatherService.weatherDTO.weatherModel.sys.sunrise);
         }
 
         [Test]
-        public void test_VarType_timezone()
+        public void testVarTypeTimezone()
         {
             Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.timezone);
         }
         [Test]
-        public void test_VarType_Name()
+        public void testVarTypeName()
         {
             Assert.IsInstanceOf(typeof(string), weatherService.weatherDTO.weatherModel.name);
         }
         [Test]
-        public void test_VarType_Cod()
+        public void testVarTypeCod()
         {
             Assert.IsInstanceOf(typeof(int), weatherService.weatherDTO.weatherModel.cod);
         }
 
+        [Test]
+        public void ContentTypeCheck()
+        {
+            Assert.AreEqual("application/json; charset=utf-8",weatherService.weatherCallManager.ContentType);
+        }
+
+        [Test]
+        public void ServerName()
+        {
+            Assert.AreEqual("openresty", weatherService.weatherCallManager.Server);
+        }
        
     }
 }
