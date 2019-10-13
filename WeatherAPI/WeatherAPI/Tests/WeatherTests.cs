@@ -335,11 +335,56 @@ namespace WeatherAPI.Tests
             Assert.AreEqual("application/json; charset=utf-8",weatherService.weatherCallManager.ContentType);
         }
 
+
         [Test]
         public void ServerName()
         {
             Assert.AreEqual("openresty", weatherService.weatherCallManager.Server);
         }
-       
+
+
+        [Test]
+        public void CoordNotlatNull()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.coord.lat);
+        }
+
+
+        [Test]
+        public void CoordNotlonNull()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.coord.lon);
+        }
+
+
+        [Test]
+        public void TempNotNull()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.main.temp);
+        }
+
+
+        [Test]
+        public void PresureNotNull()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.main.pressure);
+        }
+
+        [Test]
+        public void HumidityNotNull()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.main.humidity);
+        }
+        [Test]
+        public void SpeedNotNull()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.wind.speed);
+        }
+
+        [Test]
+        public void DegreeNotNull()
+        {
+            Assert.IsNotNull(weatherService.weatherDTO.weatherModel.wind.deg);
+        }
     }
 }
