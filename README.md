@@ -84,7 +84,16 @@ To view the responses recived from the API Postman was used to help with modelin
 - Content-Type - Check that it is a JSON Format
 - Server - Check that it is openresty
 
+**NotNull**
+- timezone - can't be null
+- id - can't be null
+- name - can't be null
+- dt - can't be null
 
+**Greater than zero**
+- main - speed - must be greater than 0
+
+# Reflection
 
 
 
