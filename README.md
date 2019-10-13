@@ -31,7 +31,7 @@ Visual studio C#
 * Test : Returns test on data points e.g "wind" "speed" - Check the wind speed is an int
 
 ## Test
-To view the responses revied from the API Postman was used to help with modeling the data.
+To view the responses recived from the API Postman was used to help with modeling the data.
 
 #### JSON API Response Example Using Postman:
 ~~~JSON{
@@ -78,4 +78,13 @@ To view the responses revied from the API Postman was used to help with modeling
     "cod": 200
 }
 ~~~
+###Exaples of a few tests performed:
+
+**Headers**
+- Content-Type - Check that it is a JSON Format
+- Server - Check that it is openresty
+
+
+
+
 
